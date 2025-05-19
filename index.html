@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Auth Containers -->
+    <div class="auth-container" id="signup-container">
+        <h1>Sign Up</h1>
+        <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" required />
+        </div>
+        <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" required />
+        </div>
+        <button onclick="signUp()" class="btn">Sign Up</button>
+        <p id="signup-message" class="message"></p>
+        <p class="switch-text">
+            Already have an account? <a href="#" onclick="showLogin()">Log In</a>
+        </p>
+    </div>
+
+    <div class="auth-container hidden" id="login-container">
+        <h1>Log In</h1>
+        <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" required />
+        </div>
+        <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required />
+        </div>
+        <button onclick="logIn()" class="btn">Log In</button>
+        <p id="login-message" class="message"></p>
+        <p class="switch-text">
+            Don't have an account? <a href="#" onclick="showSignUp()">Sign Up</a>
+        </p>
+    </div>
+
+    <!-- Todo List Container -->
+    <div class="todo-container hidden" id="todo-container">
+        <header class="todo-header">
+            <h1>Todo List</h1>
+            <p class="user-email" id="user-email"></p>
+            <button onclick="logOut()" class="btn logout-btn">Log Out</button>
+        </header>
+
+        <div class="add-todo">
+            <div class="todo-inputs">
+                <input type="text" id="new-todo" placeholder="Task title..." />
+                <textarea id="todo-description" placeholder="Task description..."></textarea>
+                <div class="todo-details">
+                    <input type="date" id="todo-due-date" />
+                    <select id="todo-priority">
+                        <option value="low">Low Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="high">High Priority</option>
+                    </select>
+                    <select id="todo-category">
+                        <option value="personal">Personal</option>
+                        <option value="work">Work</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="addTodo()" class="btn add-btn">Add Task</button>
+        </div>
+
+        <div class="filters">
+            <button onclick="filterTodos('all')" class="btn filter-btn active">All</button>
+            <button onclick="filterTodos('active')" class="btn filter-btn">Active</button>
+            <button onclick="filterTodos('completed')" class="btn filter-btn">Completed</button>
+        </div>
+
+        <ul id="todo-list" class="todo-list"></ul>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
